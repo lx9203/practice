@@ -1,7 +1,7 @@
 #fl {
 	left : 10px;
 	padding : 5px;
-  border : 1px yellowgreen;
+  border : 1px solid yellowgreen;
   float: left;
   margin: 10px;
 }
