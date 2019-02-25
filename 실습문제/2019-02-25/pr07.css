@@ -1,0 +1,7 @@
+#sc {
+  transition: width 2s;
+}
+
+#sc:hover {
+  width: 100%
+}

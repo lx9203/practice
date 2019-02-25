@@ -1,0 +1,12 @@
+div > div#a {
+  border: 2px solid lightgreen;
+  display: inline-block;
+  width: 200px;
+}
+
+div > div#b {
+  border: 2px solid lightgreen;
+  display: inline;
+  margin-left: 1px;
+  margin-right: 1px;
+}

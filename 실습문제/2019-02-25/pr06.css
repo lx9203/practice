@@ -1,0 +1,24 @@
+
+@keyframes rightspin {
+  0% { transform : rotate(0deg);}
+	100% { transform : rotate(360deg); }
+}
+
+#right {
+  animation-name: rightspin;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+
+@keyframes leftspin {
+  0% { transform : rotate(-90deg);}
+	50% { transform : rotate(90deg);}
+	100% { transform : rotate(-90deg); }
+}
+
+#left {
+  animation-name: leftspin;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
