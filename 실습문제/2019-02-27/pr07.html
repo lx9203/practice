@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var n = prompt("두자리수 이상의 숫자를 입력해주세요", " ");
+    n = parseInt(n);
+
+    var least = n%10;
+    var most = 0;
+
+    while(n>0){
+      most = n%10;
+      n=Math.floor(n/10);
+    }
+    if(most == least){
+      document.write("같음");
+    }
+    else
+      document.write("다름");
+
+  </script>
+</body>
+</html>

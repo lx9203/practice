@@ -7,19 +7,14 @@
   <title>Document</title>
 </head>
 <body>
-  <h3>
-   암호를 대라!
-  </h3>
-  <hr>
-  <script type="text/javascript">
-
-    while (true) {
-      var p = prompt("암호를 대라", " ");
-
-      if(p == "you"){
-        document.write("통과!");
-        break;
+  <script>
+    var n = prompt("입력하세요.");
+    n = parseInt(n);
+    for(i=1; i <= n; i++) {
+      for(k=1; k <= i; k++) {
+        document.write("*");
       }
+      document.write("<br>");
     }
   </script>
 </body>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h3>document.write()를 이용하여 표만들기</h3>
+  <hr>
+  <script type="text/javascript">
+
+    document.write("<table border='2'>");
+
+    document.write("<tr>");  // 첫째줄 시작
+
+    document.write("<td>n</td>");
+    for(var n=0; n<10; n++){
+      document.write("<td>" + n + "</td> ");
+      }
+
+    document.write("</tr>"); // 첫째줄 끝
+    document.write("<tr>");  // 둘째줄 시작
+
+    document.write("<td>" + "n&sup2;" + "</td> ");
+    for(var m=0; m<10; m++){
+      document.write("<td>" + m*m + "</td> ");
+    }
+
+    document.write("</tr>"); // 둘째줄 끝
+
+  </script>
+</body>
+</html>
