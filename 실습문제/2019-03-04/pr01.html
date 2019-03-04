@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h3>난수 10개 생성</h3>
+  <hr>
+  <script>
+    var n = new Array();
+    for(var i=0; i<10; i++) { // 난수 10개 배열에 저장
+      var m = Math.random()*100+1;
+      n[i] = Math.floor(m);
+    }
+    for(var i=0; i<10; i++){ // 배열 출력
+      document.write(n[i]+" ");
+    }
+
+    document.write("<hr>");
+
+    var big = n[0];          // 제일 큰 수 저장
+
+    for(var i=0; i<10; i++) {    //큰 수 찾기
+      if(big <= n[i]){
+        big = n[i];
+      }
+    }
+    document.write("제일 큰 수는 " + big);
+    document.write("<hr>");
+    n.sort();                  // 배열 정렬
+    for(var i=0; i<10; i++)
+    document.write(n[i]+" ");    // 배열 출력
+
+
+  </script>
+</body>
+</html>

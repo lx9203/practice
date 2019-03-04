@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h3>오전이면 하늘색, 오후이면 주황색</h3>
+  <hr>
+  <script>
+    var current = new Date();
+    if(current.getDay() == 0)                     // 일요일이면
+    document.body.style.backgroundColor = "pink"; // 핑크
+    else                                          // 아니면
+    document.body.style.backgroundColor = "gold"; // 골드
+
+    var week = "일";
+    switch (current.getDay()) {     // 요일이 아닌 해당 숫자로 나오므로
+      case 0:week="일";break;       // 숫자를 요일로 변경
+      case 1:week="월";break;
+      case 2:week="화";break;
+      case 3:week="수";break;
+      case 4:week="목";break;
+      case 5:week="금";break;
+      case 6:week="토";break;
+    }
+
+    document.write("오늘 : ");
+    document.write(current.getDate() + "일 ");
+    document.write(week + "요일");
+  </script>
+</body>
+</html>
