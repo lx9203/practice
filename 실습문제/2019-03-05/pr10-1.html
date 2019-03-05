@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-	<h3>정답의 동적 삽입</h3>
+	<h3>정답의 동적 삽입/삭제</h3>
 	<hr>
 	<div>
     <p>Q. 거울아 거울아 세상에서 누가 제일 예쁘니?</p>
@@ -19,14 +19,18 @@
   </div>
 
   <script>
-		function addAnswer(obj, text) {
-			var parent = obj.parentElement;
-			if(obj != parent.lastElementChild)
-			return;
+    function addAnswer(obj, text) {
+      var parent = obj.parentElement;
+      if(obj != parent.lastElementChild)
+      return;
       var i = document.createElement("p");
-			i.innerHTML = text;
-			parent.appendChild(i);
-		}
-	</script>
+      i.onclick = function() {
+        var par = this.parentElement;
+        par.removeChild(this);
+      };
+      i.innerHTML = text;
+      parent.appendChild(i);
+    }
+  </script>
 </body>
 </html>

@@ -20,20 +20,26 @@
   		<img onclick="click(this)" src="media/spade-3.png" width="100" height="140" alt="스페이드3">
   		<img onclick="click(this)" src="media/spade-7.png" width="100" height="140" alt="스페이드7">
 	</div>
+
 	<script>
-		var imgarr = document.getElementsByTagName("img");
-    for(var i=0; i<imgArray.length; i++) {
-			var card = imgarr[i];
-			card.style.zIndex=i;
-			card.style.left = "10px";
-			card.style.top = "10px";
+
+  var imgArray = document.getElementsByTagName("img");
+		for(var i=0; i<imgArray.length; i++) {
+			var obj = imgArray[i];
+			obj.style.zIndex=i;
+			obj.style.left = "10px";
+			obj.style.top = "10px";
+			obj.onclick = shuffle;
     }
 
-    var n = 0
-    function click(spade){
-    spade.style.zIndex ++;
-    spade.style.zIndex %= imgarr.length;
+  function shuffle() {
+			for(var i=0; i<imgArray.length; i++) {
+				var obj = imgArray[i];
+				obj.style.zIndex ++;
+				obj.style.zIndex %= imgArray.length;
     }
+  }
+
   </script>
 </body>
 </html>
