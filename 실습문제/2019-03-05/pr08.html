@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h3>클릭하면 2,3,4배로 옆으로 늘어납니다.</h3>
+  <hr>
+  <img onclick="scale(this)" src="media/spongebob.png" width="150" height="150" alt="스폰지밥-이었던것">
+  <script>
+    var n = 2
+    function scale(bob) {
+        bob.style.transform="scale("+n+",1)";
+        n += 1;
+      }
+  </script>
+</body>
+</html>

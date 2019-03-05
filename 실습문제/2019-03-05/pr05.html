@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div { position : absolute;}
+    img { position : absolute;}
+
+  </style>
+</head>
+<body>
+  <h3>z-index 스타일 프로퍼티</h3>
+  <hr>
+  <div>
+  		<img onclick="click(this)" src="media/spade-A.png" width="100" height="140" alt="스페이드A">
+  		<img onclick="click(this)" src="media/spade-2.png" width="100" height="140" alt="스페이드2">
+  		<img onclick="click(this)" src="media/spade-3.png" width="100" height="140" alt="스페이드3">
+  		<img onclick="click(this)" src="media/spade-7.png" width="100" height="140" alt="스페이드7">
+	</div>
+	<script>
+		var imgarr = document.getElementsByTagName("img");
+    for(var i=0; i<imgArray.length; i++) {
+			var card = imgarr[i];
+			card.style.zIndex=i;
+			card.style.left = "10px";
+			card.style.top = "10px";
+    }
+
+    var n = 0
+    function click(spade){
+    spade.style.zIndex ++;
+    spade.style.zIndex %= imgarr.length;
+    }
+  </script>
+</body>
+</html>
