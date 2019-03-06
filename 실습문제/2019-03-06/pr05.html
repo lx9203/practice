@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" ondblclick="randomColor(event)">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    function randomColor(){
+      for(var i=0; i<1; i++) {
+        var r = Math.floor(Math.random()*255+1);
+        var g = Math.floor(Math.random()*255+1);
+        var b = Math.floor(Math.random()*255+1);
+        document.body.style.backgroundColor="rgb(" + r + "," + g + "," + b + ")";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h3>바탕 아무곳에나 더블 클릭</h3>
+  <hr>
+  바탕 아무 곳이나 더블클릭하면 배경색이 랜덤하게 변합니다.
+</body>
+</html>
