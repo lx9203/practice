@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    td{
+      text-align: left;
+      padding-right: 20px;
+    }
+  </style>
+  <script>
+  // 타이머 시작 -----------------------------------------
+  var timerID=null;
+  var countDown=11;
+
+  function startTimer() {
+    document.getElementById("score").innerHTML = 0;
+    var clock = document.getElementById("clock");
+    countDown = 11;
+    if(timerID != null)
+      clearTimeout(timerID);
+    timeout(clock);
+  }
+
+  function timeout(obj) {
+    countDown--;
+    obj.innerHTML = countDown;
+    if(countDown == 0)
+      calculate();
+    else
+      timerID = setTimeout("timeout(clock)", 1000);
+  }
+  // 타이머 끝 -------------------------------------------
+  // 채점 --------------------------------------------
+	function calculate() {
+		var total = 0;
+		var qusArray = document.getElementsByClassName("qus");
+		var ansArray = document.getElementsByClassName("ans");
+
+		for(i=0; i<qusArray.length; i++) {
+			var qus = qusArray[i].innerHTML;
+			var answer = Math.floor(eval(qus));
+			var userAnswer = ansArray[i].value;
+
+			if(userAnswer == "" || isNaN(userAnswer)) {
+				total += 0;
+				qusArray[i].style.textDecoration = "line-through";
+			}
+			else if(parseInt(userAnswer) == answer) {
+				total += 1;
+				qusArray[i].style.textDecoration = "none";
+			}
+			else {
+				total += 0;
+				qusArray[i].style.textDecoration = "line-through";
+			}
+		}
+		document.getElementById("score").innerHTML = total;
+	}
+  // 채점 끝 ---------------------------------------------
+  // 문제생성 --------------------------------------------
+  function randomEx() {
+		var qusArray = document.getElementsByClassName("qus");
+		var ansArray = document.getElementsByClassName("ans");
+		for(i=0; i<qusArray.length; i++) {
+			var number1 = Math.floor(Math.random()*20)+1;
+			var number2 = Math.floor(Math.random()*20)+1;
+			var op = Math.floor(Math.random()*4);
+			var os="+";
+			switch(op) {
+				case 0 : os = "+"; break;
+				case 1 : os = "-"; break;
+				case 2 : os = "*"; break;
+				case 3 : os = "/"; break;
+			}
+			qusArray[i].innerHTML = number1 + os + number2;
+			qusArray[i].style.textDecoration = "none";
+			ansArray[i].value="";
+		}
+  }
+  // 문제 생성 끝 -----------------------------------------
+  	</script>
+</head>
+<body>
+  <h3>산수문제를 풀어 봅시다.</h3>
+  문제는 자동으로 생성되며, 10초가 지나면 자동 채점됩니다.<br>
+  남은시간 <span id="clock">0</span>
+  <hr>
+  <form>
+		<table>
+			<tr>
+        <td class="qus"></td>
+        <td><input class="ans" type="text"></td>
+      </tr>
+			<tr>
+        <td class="qus"></td>
+        <td><input class="ans" type="text"></td>
+      </tr>
+			<tr>
+        <td class="qus"></td>
+        <td><input class="ans" type="text"></td>
+      </tr>
+			<tr>
+        <td class="qus"></td>
+        <td><input class="ans" type="text"></td>
+      </tr>
+			<tr>
+        <td><button type="button" onclick="randomEx(); startTimer();">다시</button></td>
+				<td><span id="score">0</span></td>
+      </tr>
+		</table>
+	</form>
+</body>
+</html>

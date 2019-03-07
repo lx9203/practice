@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    td{
+      text-align: left;
+      padding-right: 20px;
+    }
+    #num {
+      padding-right: 38px;
+    }
+  </style>
+  <script>
+  		function calculate() {
+  			var total = 0;
+  			var qusArray = document.getElementsByClassName("qus");
+  			var ansArray = document.getElementsByClassName("ans");
+
+  			for(i=0; i<qusArray.length; i++) {
+  				var qus = qusArray[i].innerHTML;
+  				var answer = Math.floor(eval(qus));
+  				var userAnswer = ansArray[i].value;
+
+  				if(userAnswer=="" || isNaN(userAnswer)) {
+  					total += 0;
+  					qusArray[i].style.textDecoration = "line-through";
+  				}
+  				else if(parseInt(userAnswer) == answer) {
+  					total += 1;
+  					qusArray[i].style.textDecoration = "none";
+  				}
+  				else {
+  					total += 0;
+  					qusArray[i].style.textDecoration = "line-through";
+  				}
+  			}
+  			document.getElementById("score").innerHTML = total;
+  		}
+
+      function randomEx() {
+  			var qusArray = document.getElementsByClassName("qus");
+  			var ansArray = document.getElementsByClassName("ans");
+  			for(i=0; i<qusArray.length; i++) {
+  				var number1 = Math.floor(Math.random()*20)+1;
+  				var number2 = Math.floor(Math.random()*20)+1;
+  				var op = Math.floor(Math.random()*4);
+  				var os="+";
+  				switch(op) {
+  					case 0 : os = "+"; break;
+  					case 1 : os = "-"; break;
+  					case 2 : os = "*"; break;
+  					case 3 : os = "/"; break;
+  				}
+  				qusArray[i].innerHTML = number1 + os + number2;
+  				qusArray[i].style.textDecoration = "none";
+  				ansArray[i].value="";
+  				document.getElementById("score").innerHTML = 0;
+  			}
+      }
+  	</script>
+</head>
+<body>
+  <h3>산수문제를 풀어 봅시다.</h3>
+  <hr>
+  자동으로 문제가 만들어집니다. 답 입력 후 채점버튼을 누르세요. 다시 버튼을 누르면 새로운 문제가 출력됩니다. 나누기 결과는 정수입니다.
+  <br><br>
+  <form>
+		<table>
+			<tr>
+        <td class="qus">5*6</td>
+        <td><input class="ans" type="text" size="8"></td>
+      </tr>
+			<tr>
+        <td class="qus">7+5*3</td>
+        <td><input class="ans" type="text" size="8"></td>
+      </tr>
+			<tr>
+        <td class="qus">23*2</td>
+        <td><input class="ans" type="text" size="8"></td>
+      </tr>
+			<tr>
+        <td class="qus">35-7</td>
+        <td><input class="ans" type="text" size="8"></td>
+      </tr>
+			<tr>
+        <td><button type="button" onclick="calculate()">채점</button></td>
+				<td><span id="score"></span><button type="button" onclick="randomEx()">다시</button></td>
+      </tr>
+		</table>
+	</form>
+</body>
+</html>
